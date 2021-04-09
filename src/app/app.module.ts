@@ -11,6 +11,7 @@ import { UserComponent } from './components/user/user.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { CarImageComponent } from './components/car-image/car-image.component';
 import { CategoryComponent } from './components/category/category.component';
+import { CardetailComponent } from './components/cardetail/cardetail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CategoryComponent } from './components/category/category.component';
     UserComponent,
     NaviComponent,
     CarImageComponent,
-    CategoryComponent
+    CategoryComponent,
+    CardetailComponent
   ],
   imports: [
     BrowserModule,

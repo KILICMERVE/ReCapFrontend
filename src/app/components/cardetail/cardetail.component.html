@@ -1,0 +1,18 @@
+<div class="card" style="width: 40rem;">
+    <img src="{{imageUrl}}/{{car.image}}" class="card-img-top" alt="...">
+
+    <ul class="list-group list-group-flush" *ngIf="car">
+      <li class="list-group-item">{{car.descriptions}}</li>
+      <li class="list-group-item">{{car.carName}}</li>
+      <li class="list-group-item">{{car.brandName}}</li>
+      
+    </ul>
+    <div class="card-body">
+        <h5 class="card-title">Fiyat</h5>
+        <li class="list-group-item">{{car.dailyPrice}} tl </li>
+      </div>
+    <div class="card-body">
+      <a href="#" class="card-link">Kirala</a>
+      
+    </div>
+  </div>
