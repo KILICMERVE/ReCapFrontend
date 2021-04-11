@@ -1,0 +1,38 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Araç Kirala</h5></div>
+            <div class="card-body">
+                <form [formGroup]="carRentalForm">
+                    <div class="form-group">
+                        <img src="{{imageUrl}}/{{car.image}}" class="rounded mx-auto d-block" alt="...">
+                    </div>
+                    <br>
+                    <label for="customerId">Müşteri Id</label>
+                    <div class="form-group">
+                        <input type="number" id="customerId" formControlName="customerId" class="form-control" placeholder="müşteri">
+                    </div>
+                    <br>
+                    <label for="carId">Car Id</label>
+                    <div class="form-group">
+                        <input type="number" id="carId" value="{{car.carId}}" formControlName="carId" class="form-control" placeholder="carId">
+
+                    </div>
+                    <br>
+                    <label for="rentDate">Kiralama Tarihi</label>
+                    <div class="form-group">
+                        <input type="date" id="rentDate" formControlName="rentDate" class="form-control" placeholder="Kiralama Tarihi">
+                    </div>
+                    <br>
+                    <label for="returnDate">Bitiş Tarihi</label>
+                    <div class="form-group">
+                        <input type="date" id="returnDate" formControlName="returnDate" class="form-control" placeholder="Dönüş Tarihi">
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-success"  (click)="add()">Kirala</button>
+            </div>
+        </div>
+    </div>
+</div>

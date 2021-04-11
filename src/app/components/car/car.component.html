@@ -1,4 +1,11 @@
 
+<div class="mb-3">
+    <label for="filterText" class="form-label">Araba Ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+</div>
+<div class="alert alert-success" *ngIf="filterText">
+    {{filterText|uppercase}} aradınız
+</div>
 <table class="table table-success table-striped">
     <thead>
         <tr>
@@ -8,18 +15,25 @@
             <th>Araba Adı</th>
             <th>Model Yılı</th>
             <th>Günlük Fiyat</th>
+            <th>Kdv'li Fiyat</th>
             <th>Açıklama</th>
+            <th></th>
         </tr>
     </thead>
-    <tr (click)="setCurrentCar(car)" routerLink="/cardetail/car/{{car.carId}}"    *ngFor = "let car of cars"  >
-        <td>{{car.carId}}</td>
-        <td>{{car.brandId}}</td>
-        <td>{{car.colorId}}</td>
-        <td>{{car.carName}}</td>
-        <td>{{car.modelYear}}</td>
-        <td>{{car.dailyPrice}}</td>
-        <td>{{car.descriptions}}</td>
-    </tr>
-   
+    <tbody>
+        <tr (click)="setCurrentCar(car)" routerLink="/cardetail/car/{{car.carId}}"    *ngFor = "let car of cars |filterPipe:filterText"  >
+            <td>{{car.carId}}</td>
+            <td>{{car.brandId}}</td>
+            <td>{{car.colorId}}</td>
+            <td>{{car.carName |uppercase}}</td>
+            <td>{{car.modelYear}}</td>
+            <td>{{car.dailyPrice |currency}}</td>
+            <td>{{car.dailyPrice |vatAdded:10 }}</td>
+            <td>{{car.descriptions}}</td>
+            <td><button (click)="rentTheCar(car)" type="button" class="btn btn-success">Detaya Git</button></td>
+        </tr>
+    </tbody>
+    
+    
 </table>
 

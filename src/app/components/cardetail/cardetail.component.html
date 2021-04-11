@@ -1,4 +1,4 @@
-<div class="card" style="width: 40rem;">
+<div class="card" style="width: 20rem;">
     <img src="{{imageUrl}}/{{car.image}}" class="card-img-top" alt="...">
 
     <ul class="list-group list-group-flush" *ngIf="car">
@@ -9,10 +9,15 @@
     </ul>
     <div class="card-body">
         <h5 class="card-title">Fiyat</h5>
-        <li class="list-group-item">{{car.dailyPrice}} tl </li>
-      </div>
-    <div class="card-body">
-      <a href="#" class="card-link">Kirala</a>
-      
+        <li class="list-group-item">{{car.dailyPrice |currency}}</li>
     </div>
-  </div>
+    <body>
+      <form>
+       
+        <div class="card-body" *ngIf="car" >
+          <button  type="button" routerLink="/cardetail/rental/{{car.carId}}"  class="btn btn-success">Aracı Kirala</button>  
+        </div>
+      </form>
+    </body>
+    
+</div>

@@ -1,3 +1,10 @@
+<div class="mb-3">
+    <label for="filterText" class="form-label">Renk Ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+  </div>
+  <div class="alert alert-success" *ngIf="filterText">
+    {{filterText|uppercase}} aradınız
+  </div>
 <table class="table">
     <thead>
         <tr>
@@ -5,7 +12,7 @@
             <th>Renk Adı</th>
         </tr>
     </thead>
-    <tr *ngFor = "let color of colors">
+    <tr *ngFor = "let color of colors |filterColor:filterText">
         <td>{{color.colorId}}</td>
         <td>{{color.colorName}}</td>
         

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Brand } from 'src/app/models/brand';
 import { Color } from 'src/app/models/color';
+import { BrandService } from 'src/app/services/brand.service';
 import { ColorService } from 'src/app/services/color.service';
 
 
@@ -11,11 +13,14 @@ import { ColorService } from 'src/app/services/color.service';
 export class NaviComponent implements OnInit {
 
   colors:Color[]=[];
+  brands:Brand[]=[];
   currentColor:Color;
-  constructor(private colorService:ColorService) { }
+  currentBrand:Brand;
+  constructor(private colorService:ColorService,private brandService:BrandService) { }
 
   ngOnInit(): void {
     this.getColors();
+    this.getBrands();
   }
 
   getColors(){
@@ -24,6 +29,15 @@ export class NaviComponent implements OnInit {
     })
   }
 
+  getBrands(){
+    this.brandService.getBrands().subscribe(response=> {
+      this.brands=response.data
+    })
+  }
+
+  setCurrentBrand(brand:Brand){
+    this.currentBrand=brand;
+  }
   setCurrentColor(color:Color){
     this.currentColor=color;
   }
@@ -44,5 +58,7 @@ export class NaviComponent implements OnInit {
       return "list-group-item list-group-item-action list-group-item-secondary"
     }
   }
+
+  
 
 }

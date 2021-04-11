@@ -15,7 +15,7 @@ import { CardetailService } from 'src/app/services/cardetail.service';
 export class CarComponent implements OnInit {
 
   cars:Car[]=[];
-
+  filterText="";
   currentCar:Car;
   dataLoaded=false;
  
@@ -55,11 +55,13 @@ export class CarComponent implements OnInit {
     })
   }
 
-
-
   getCarsColor(colorId:Color){
     this.carService.getCarsColor(colorId).subscribe(response=>{
       this.cars=response.data
     })
+  }
+
+  rentTheCar(car:Car){
+      console.log(car)
   }
 }

@@ -31,6 +31,10 @@ getCarsColor(colorId:Color):Observable<ListResponseModel<Car>>{
   return this.httpClient.get<ListResponseModel<Car>>(newUrl)
 
 }
+getCarDetail():Observable<ObjectResponseModel<CarDetail[]>>{
+  let path=this.apiUrl+ "cars/getcardetails"
+  return this.httpClient.get<ObjectResponseModel<CarDetail[]>>(path);
+}
 
 
 

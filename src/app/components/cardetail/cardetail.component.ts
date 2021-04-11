@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/carDetail';
+import { Rental } from 'src/app/models/rental';
 
 import { CardetailService } from 'src/app/services/cardetail.service';
+import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
   selector: 'app-cardetail',
@@ -12,9 +15,9 @@ import { CardetailService } from 'src/app/services/cardetail.service';
 })
 export class CardetailComponent implements OnInit {
 
-  car:CarDetail={carId:0,carName:"",colorName:"",brandName:"",modelYear:"",dailyPrice:0,descriptions:"",image:"",success:true,message:""};
- 
-  constructor(private cardetailService:CardetailService,private activatedRoute:ActivatedRoute) { }
+
+  car:CarDetail={carId:0,carName:"",brandName:"",colorName:"",modelYear:"",dailyPrice:0,descriptions:"",image:"",success:true,message:""};
+  constructor(private cardetailService:CardetailService,private activatedRoute:ActivatedRoute,private toastrService:ToastrService) { }
   imageUrl:string ='https://localhost:44351'
  
   ngOnInit(): void {
@@ -32,5 +35,7 @@ export class CardetailComponent implements OnInit {
    
     })
   }
+
+
   
 }

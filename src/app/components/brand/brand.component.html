@@ -1,7 +1,15 @@
+
+<div class="mb-3">
+  <label for="filterText" class="form-label">Marka Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+</div>
+<div class="alert alert-success" *ngIf="filterText">
+  {{filterText|uppercase}} aradınız
+</div>
 <ul class="list-group" >
     <li  (click)="setCurrentAllBrand()" routerLink="/cars" class="list-group-item list-group-item-action list-group-item-light">Tüm Marklar</li>
     <li
-    *ngFor = "let brand of brands"
+    *ngFor = "let brand of brands |filterBrand:filterText"
       (click)="setCurrentBrand(brand)"
       routerLink="/cars/brand/{{brand.brandId}}"
      
